@@ -1,12 +1,12 @@
 ---
 
-# - name: Wait for remote k8s apiserver
-#   ansible.builtin.wait_for:
-#     host: "{{ rke2_kubernetes_api_server_host }}"
-#     port: "6443"
-#     state: present
-#     timeout: "300"
-#   changed_when: false
+- name: Wait for remote k8s apiserver
+  ansible.builtin.wait_for:
+    host: "{{ rke2_kubernetes_api_server_host }}"
+    port: "6443"
+    state: present
+    timeout: "300"
+  changed_when: false
 
 # - name: Include task file add-manifest-addons.yml
 #   ansible.builtin.include_tasks: add-manifest-addons.yml
