@@ -1,5 +1,5 @@
 ---
-rke2_kubernetes_api_server_host: ""
+rke2_kubernetes_api_server_host: "{{ server }}"
 rke2_tarball_install_dir: "/usr/local"
 rke2_install_local_tarball_path: ""
 rke2_install_tarball_url: ""
