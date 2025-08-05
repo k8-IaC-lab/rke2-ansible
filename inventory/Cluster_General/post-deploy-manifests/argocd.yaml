@@ -1,0 +1,17 @@
+# filepath: inventory/Cluster_A/post-deploy-manifests/argocd.yaml
+apiVersion: helm.cattle.io/v1
+kind: HelmChart
+metadata:
+  name: argo-cd
+  namespace: argocd
+spec:
+  repo: https://argoproj.github.io/argo-helm
+  chart: argo-cd
+  version: 5.51.6
+  targetNamespace: argocd
+  createNamespace: true
+  valuesContent: |
+    configs:
+      repositories:
+        argocd-general:
+          url: https://github.com/k8-IaC-lab/argocd-general.git
