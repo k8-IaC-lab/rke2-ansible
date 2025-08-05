@@ -49,7 +49,7 @@
 
 - name: Export KUBECONFIG and add kubectl alias for current user
   ansible.builtin.blockinfile:
-    path: ~/.bashrc
+    path: /root/.bashrc
     marker: "# {mark} ANSIBLE MANAGED BLOCK: RKE2 kubectl config"
     block: |
       export KUBECONFIG=/etc/rancher/rke2/rke2.yaml
