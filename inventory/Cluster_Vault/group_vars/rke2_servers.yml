@@ -1,3 +1,5 @@
 group_rke2_config:
   tls-san:
     - "{{ tls_san }}"
+# filepath: inventory/Cluster_Vault/group_vars/rke2_servers.yml
+rke2_manifest_config_post_run_directory: "{{ playbook_dir }}/inventory/Cluster_Vault/post-deploy-manifests/"

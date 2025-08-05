@@ -40,6 +40,13 @@
 - name: Satisfy OS Pre-Reqs
   ansible.builtin.include_tasks: pre_reqs.yml
 
+- name: Extend logical volume to use all free space
+  ansible.builtin.command: lvextend -r -l +100%FREE /dev/ubuntu-vg/ubuntu-lv
+  become: true
+  register: lvextend_result
+  changed_when: "'successfully resized' in lvextend_result.stdout or lvextend_result.rc == 0"
+  failed_when: lvextend_result.rc != 0
+
 - name: Has rke2 been installed already
   ansible.builtin.include_tasks: previous_install.yml
 
