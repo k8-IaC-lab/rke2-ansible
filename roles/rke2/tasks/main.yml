@@ -55,7 +55,6 @@
       export KUBECONFIG=/etc/rancher/rke2/rke2.yaml
       export PATH=$PATH:/var/lib/rancher/rke2/bin
       alias k=kubectl
-  become: false
   when: inventory_hostname in groups['rke2_servers']
 
 - name: Has rke2 been installed already
