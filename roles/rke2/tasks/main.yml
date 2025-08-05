@@ -47,6 +47,17 @@
   changed_when: "'successfully resized' in lvextend_result.stdout or lvextend_result.rc == 0"
   failed_when: lvextend_result.rc != 0
 
+- name: Export KUBECONFIG and add kubectl alias for current user
+  ansible.builtin.blockinfile:
+    path: ~/.bashrc
+    marker: "# {mark} ANSIBLE MANAGED BLOCK: RKE2 kubectl config"
+    block: |
+      export KUBECONFIG=/etc/rancher/rke2/rke2.yaml
+      export PATH=$PATH:/var/lib/rancher/rke2/bin
+      alias k=kubectl
+  become: false
+  when: inventory_hostname in groups['rke2_servers']
+
 - name: Has rke2 been installed already
   ansible.builtin.include_tasks: previous_install.yml
 
