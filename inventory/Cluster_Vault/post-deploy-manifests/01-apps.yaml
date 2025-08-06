@@ -1,0 +1,41 @@
+# filepath: inventory/Cluster_A/post-deploy-manifests/argocd.yaml
+apiVersion: helm.cattle.io/v1
+kind: HelmChart
+metadata:
+  name: argo-cd
+  namespace: argocd
+spec:
+  repo: https://argoproj.github.io/argo-helm
+  chart: argo-cd
+  version: 5.51.6
+  targetNamespace: argocd
+  createNamespace: true
+  valuesContent: |
+    configs:
+      repositories:
+        argocd-vault:
+          url: https://github.com/k8-IaC-lab/argocd-vault.git
+---
+apiVersion: helm.cattle.io/v1
+kind: HelmChart
+metadata:
+  name: metallb
+  namespace: metallb-system
+spec:
+  repo: https://metallb.github.io/metallb
+  chart: metallb
+  version: 0.15.2
+  targetNamespace: metallb-system
+  createNamespace: true
+---
+apiVersion: helm.cattle.io/v1
+kind: HelmChart
+metadata:
+  name: external-secrets
+  namespace: external-secrets
+spec:
+  repo: https://external-secrets.io
+  chart: external-secrets
+  version: 0.19.0
+  targetNamespace: external-secrets
+  createNamespace: true
