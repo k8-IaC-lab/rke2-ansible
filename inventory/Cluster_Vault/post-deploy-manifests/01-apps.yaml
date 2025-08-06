@@ -27,15 +27,3 @@ spec:
   version: 0.15.2
   targetNamespace: metallb-system
   createNamespace: true
----
-apiVersion: helm.cattle.io/v1
-kind: HelmChart
-metadata:
-  name: external-secrets
-  namespace: external-secrets
-spec:
-  repo: https://external-secrets.io
-  chart: external-secrets
-  version: 0.19.0
-  targetNamespace: external-secrets
-  createNamespace: true
