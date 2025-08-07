@@ -2,7 +2,7 @@
 apiVersion: helm.cattle.io/v1
 kind: HelmChart
 metadata:
-  name: argo-cd
+  name: argocd
   namespace: argocd
 spec:
   repo: https://argoproj.github.io/argo-helm
