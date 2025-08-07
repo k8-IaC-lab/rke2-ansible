@@ -17,4 +17,4 @@
     create: true
     mode: "0640"
   notify: Restart {{ service_name }}
-  when: not rke2_is_cluster_init | default(false)
+  when: inventory_hostname != groups['rke2_servers'][0]
