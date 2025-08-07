@@ -73,4 +73,4 @@ ansible-playbook -i hosts.yml site.yml \
 ### 4. Post-provision Steps
 
 Once provisioning completes, follow the post-installation instructions in:  
-➡️ [https://github.com/k8-IaC-lab/argocd-vault](https://github.com/k8-IaC-lab/argocd-vault)
+[https://github.com/k8-IaC-lab/argocd-vault](https://github.com/k8-IaC-lab/argocd-vault)
